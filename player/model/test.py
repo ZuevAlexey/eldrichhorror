@@ -1,0 +1,17 @@
+class Test(object):
+    def __init__(self, type, modificator, success, fail):
+        super().__init__()
+        self.type = type
+        self.modificator = modificator
+        self.success = success
+        self.fail = fail
+
+    def has_modificator(self):
+        return self.modificator is None
+
+    def has_success(self):
+        return self.success is None
+
+    def has_fail(self):
+        return self.fail is None
+

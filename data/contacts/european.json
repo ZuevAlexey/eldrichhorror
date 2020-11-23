@@ -1,0 +1,387 @@
+[
+    {
+        "id": 1,
+        "version": "00",
+        "locations": {
+            "London": {
+                "step": "Двери в Ложу Серебрянных Сумерек крепко заперты. Вы обходите старое здание в поисках другого входа",
+                "test": {
+                    "type": "Attention",
+                    "success": "Члены Ложи восхищены вашей настойчивостью и предлагают вам своё покровительство: возьмите состояние БЛАГОСЛОВЛЕНИЕ",
+                    "fail": "Вы потратили время зря: вы ЗАДЕРЖАНЫ"
+                }
+            },
+            "Rome": {
+                "step": "Ватиканская библиотека такая огромная! Вы просите помощи у библиотекаря",
+                "test": {
+                    "type": "Communication",
+                    "success": "Он находит для вас древнюю рукопись, в которой рассказано, как последователи Шуб-Ниггурат были изгнаны из Рима, и эта история придйет вам уверенности: улучшите навык ВОЛЯ"
+                }
+            },
+            "Istanbul": {
+                "step": "Среди шума и суеты Большого базара ы ищете мудрого наставника, который дает вам частный уроки",
+                "test": {
+                    "type": "Communication",
+                    "modificatior": "-1",
+                    "success": "Улучшите 1 навык на свой выбор",
+                    "fail": "Преподаватель не учит вас ничего новому, но требует большой платы: возьмите состояние ДОЛГ"
+                }
+            }
+        }
+    },
+    {
+        "id": 2,
+        "version": "00",
+        "locations": {
+            "London": {
+                "step": "Пациент Херефордширской лечебницы спрашивает, видели ли вы Жёлтый знак, и рассказывает о Короле в жёлтом",
+                "test": {
+                    "type": "Attention",
+                    "success": "Выложите на поле 2 УЛИКИ",
+                    "fail": "Его слова овладевают вашим сознанием: возьмите сотояние ГАЛЛЮЦИНАЦИИ"
+                }
+            },
+            "Rome": {
+                "step": "Вам снится, будто вы - мудрый и уважаемый римский квестор. Улучшите навык ВОЛЯ. Вас будит шум с улицы. Под окнами виллы бесчинствует толпа низкорослых туземцев - это дикари из затерянного племени мири-нигри, которые требуют расплаты за какие-то древние обиды. Вы пытаетесь договриться с ними",
+                "test": {
+                    "type": "Communication",
+                    "modificatior": "-1",
+                    "fail": "Потеряйте 1 ЗДОРОВЬЕ и 1 РАССУДОК"
+                }
+            },
+            "Istanbul": {
+                "step": "Люди из всех слоёв общества аслаждаются очищающим паром турецких бань. Рано или поздно вы встретите тут специалиста в лубой области: можете ЗАДЕРЖАТЬСЯ, чтобы улучшить 1 навык на свой выбор"
+            }
+        }
+    },
+    {
+        "id": 5,
+        "version": "00",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 6,
+        "version": "00",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 10,
+        "version": "01",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 13,
+        "version": "01",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 14,
+        "version": "01",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 16,
+        "version": "01",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 18,
+        "version": "02",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 19,
+        "version": "02",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 21,
+        "version": "03",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    },
+    {
+        "id": 24,
+        "version": "03",
+        "locations": {
+            "London": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Rome": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            },
+            "Istanbul": {
+                "step": "",
+                "test": {
+                    "type": ,
+                    "modificatior": "-1",
+                    "success": "",
+                    "fail": ""
+                }
+            }
+        }
+    }
+]
