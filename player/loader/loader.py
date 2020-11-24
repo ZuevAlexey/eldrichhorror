@@ -16,7 +16,9 @@ def load_decks():
     contacts_directory_path = _get_contacts_directory_path()
     result = {
         CardBackType.COMMON: _load_deck(contacts_directory_path, 'common.json', CardBackType.COMMON),
-        CardBackType.AMERICAN: _load_deck(contacts_directory_path, 'american.json', CardBackType.AMERICAN)
+        CardBackType.AMERICAN: _load_deck(contacts_directory_path, 'american.json', CardBackType.AMERICAN),
+        CardBackType.EUROPEAN: _load_deck(contacts_directory_path, 'european.json', CardBackType.EUROPEAN),
+        CardBackType.ASIAN: _load_deck(contacts_directory_path, 'asian.json', CardBackType.EUROPEAN)
     }
     return result
 

@@ -12,6 +12,9 @@ class Location(Enum):
     LONDON = "London"
     ROME = "Rome"
     ISTANBUL = "Istanbul"
+    ZANHAE = "Zanhae"
+    TOKYO = "Tokyo"
+    SYDNEY = "Sydney"
 
     @staticmethod
     def from_str(label):
