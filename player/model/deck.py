@@ -7,7 +7,7 @@ class Deck(object):
 
     def add(self, card):
         self.cards.append(card)
-        self.remainedCards.append(card.id)
+        self.remainedCards.append(card.get_unique_id())
 
     @property
     def capacity(self):

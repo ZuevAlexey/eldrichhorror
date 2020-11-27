@@ -7,6 +7,8 @@ class CardBackType(Enum):
     AMERICAN = 'American'
     EUROPEAN = "European"
     ASIAN = "Asian"
+    EXPEDITION = "Expedition"
+    OTHER_WORLD = "OtherWorld"
 
     @staticmethod
     def from_str(label):
