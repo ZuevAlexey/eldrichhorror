@@ -4,10 +4,13 @@ class ComplexContactCard(object):
         self.id = contact_id
         self.version = version
         self.location = location
-        self.contact = contact
+        self._contact = contact
 
     def has_location(self):
         return self.location is None
 
     def get_unique_id(self):
         return (self.location.name + '_' if self.location is not None else '') + str(self.id)
+
+    def get_contact(self):
+        return self._contact

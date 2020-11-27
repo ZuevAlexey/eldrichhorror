@@ -1,14 +1,15 @@
 import json
 import os
 from model.contact import Contact
+from model.deckSet import DeckSet
 from model.test import Test
 from model.deck import Deck
+from model.expeditionDeck import ExpeditionDeck
 from model.simpleContactCard import SimpleContactCard
 from model.complexContactCard import ComplexContactCard
 from model.enums.cardBackType import CardBackType
 from model.enums.testType import TestType
 from model.enums.location import Location
-
 
 CONTACTS_RELATED_PATH = 'data\\contacts'
 
@@ -23,13 +24,16 @@ def load_decks():
         CardBackType.EXPEDITION: _load_deck(contacts_directory_path, 'expedition.json', CardBackType.EXPEDITION, True),
         CardBackType.OTHER_WORLD: _load_deck(contacts_directory_path, 'otherWorld.json', CardBackType.OTHER_WORLD, True)
     }
-    return result
+    return DeckSet(result)
 
 
 def _load_deck(contacts_directory_path, deck_file_name, deck_card_back_type, is_complex=False):
     with open(os.path.join(contacts_directory_path, deck_file_name), encoding='utf-8') as json_file:
         common_contacts = json.load(json_file)
-    result = Deck(deck_card_back_type)
+    if deck_card_back_type == CardBackType.EXPEDITION:
+        result = ExpeditionDeck(deck_card_back_type)
+    else:
+        result = Deck(deck_card_back_type)
     for card_data in common_contacts:
         if is_complex:
             result.add(_parse_complex_card(card_data))
@@ -41,19 +45,19 @@ def _load_deck(contacts_directory_path, deck_file_name, deck_card_back_type, is_
 def _parse_simple_card(card_data):
     contacts = {}
     for location_type, contact in card_data['locations'].items():
-        contacts[Location.from_str(location_type)] = parse_contact(contact)
+        contacts[Location.from_str(location_type)] = _parse_contact(contact)
 
     return SimpleContactCard(card_data['id'], card_data['version'], contacts)
 
 
 def _parse_complex_card(card_data):
-    contact = parse_contact(card_data, is_complex=True, result_parser=parse_contact)
+    contact = _parse_contact(card_data, is_complex=True, result_parser=_parse_contact)
 
     return ComplexContactCard(card_data['id'], card_data['version'], Location.from_str(card_data.get('location')), contact)
 
 
 def _parse_contact(contact, is_complex=False, result_parser=None):
-    test = parse_test(contact.get('test'), result_parser)
+    test = _parse_test(contact.get('test'), result_parser)
     return Contact(contact['step'], test, is_complex)
 
 

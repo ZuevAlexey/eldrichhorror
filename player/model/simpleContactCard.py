@@ -3,10 +3,10 @@ class SimpleContactCard(object):
         super().__init__()
         self.id = contact_id
         self.version = version
-        self.contacts = simpleContacts
+        self._contacts = simpleContacts
 
     def get_contact(self, location):
-        result = self.simpleContacts[location]
+        result = self._contacts[location]
         if result is not None:
             return result
 
