@@ -9,6 +9,7 @@ class CardBackType(Enum):
     ASIAN = "Asian"
     EXPEDITION = "Expedition"
     OTHER_WORLD = "OtherWorld"
+    RESEARCH = "Research"
 
     @staticmethod
     def from_str(label):

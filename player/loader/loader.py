@@ -22,7 +22,8 @@ def load_decks():
         CardBackType.EUROPEAN: _load_deck(contacts_directory_path, 'european.json', CardBackType.EUROPEAN),
         CardBackType.ASIAN: _load_deck(contacts_directory_path, 'asian.json', CardBackType.EUROPEAN),
         CardBackType.EXPEDITION: _load_deck(contacts_directory_path, 'expedition.json', CardBackType.EXPEDITION, True),
-        CardBackType.OTHER_WORLD: _load_deck(contacts_directory_path, 'otherWorld.json', CardBackType.OTHER_WORLD, True)
+        CardBackType.OTHER_WORLD: _load_deck(contacts_directory_path, 'otherWorld.json', CardBackType.OTHER_WORLD, True),
+        CardBackType.RESEARCH: _load_deck(contacts_directory_path, 'research_yog_sothoth.json', CardBackType.RESEARCH)
     }
     return DeckSet(result)
 
