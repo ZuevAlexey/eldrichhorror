@@ -6,9 +6,6 @@ class ExpeditionDeck(Deck):
         super().__init__(cardBackType)
 
     def get_next_location(self):
-        if not self._is_shuffled:
-            raise RuntimeError(Deck.DECK_NOT_SHUFFLED)
-
         self._reshuffle_if_need()
 
         next_card_id = self._cardStack[len(self._cardStack) - 1]

@@ -9,6 +9,9 @@ deck_set = loader.load_decks()
 # shuffle decks before a game
 deck_set.shuffle()
 
+# get specific contact for test
+contact = deck_set.get_deck(CardBackType.COMMON)._cards.get('1').get_contact(Location.CITY)
+
 # get next 'Common' contact in location 'Sea'
 next_sea_contact = deck_set.get_next_contact(CardBackType.COMMON, Location.SEA)
 
