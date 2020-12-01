@@ -6,4 +6,4 @@ class Contact(object):
         self.is_complex = is_complex
 
     def has_test(self):
-        return self.test is None
+        return self.test is not None

@@ -7,11 +7,11 @@ class Test(object):
         self.fail = fail
 
     def has_modificator(self):
-        return self.modificator is None
+        return self.modificator is not None
 
     def has_success(self):
-        return self.success is None
+        return self.success is not None
 
     def has_fail(self):
-        return self.fail is None
+        return self.fail is not None
 

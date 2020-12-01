@@ -7,7 +7,7 @@ class ComplexContactCard(object):
         self._contact = contact
 
     def has_location(self):
-        return self.location is None
+        return self.location is not None
 
     def get_unique_id(self):
         return (self.location.name + '_' if self.location is not None else '') + str(self.id)
