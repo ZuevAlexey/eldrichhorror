@@ -21,37 +21,48 @@ def create_main_window():
     frame1 = Frame(window)
     frame2 = Frame(window)
     frame3 = Frame(window)
+    frame4 = Frame(window)
+    frame5 = Frame(window)
     frame1.pack()
     frame2.pack()
     frame3.pack()
+    frame4.pack()
+    frame5.pack()
 
-    create_card_button(frame1, 'Город', lambda: town_contact(deck_set))
-    create_card_button(frame1, 'Глушь', lambda: town_contact(deck_set))
-    create_card_button(frame1, 'Море', lambda: town_contact(deck_set))
-    create_card_button(frame2, 'Арехэм', lambda: town_contact(deck_set))
-    create_card_button(frame2, 'Сан-Франциско', lambda: town_contact(deck_set))
-    create_card_button(frame2, 'Буйный Сайрес', lambda: town_contact(deck_set))
-    create_card_button(frame3, 'Врата', lambda: town_contact(deck_set))
-    create_card_button(frame3, 'Экспедиция', lambda: town_contact(deck_set))
-    create_card_button(frame3, 'Улика', lambda: town_contact(deck_set))
+    create_card_button(frame1, 'Общие: Город', lambda: play_contact(deck_set, CardBackType.COMMON, Location.CITY))
+    create_card_button(frame1, 'Общие: Глушь', lambda: play_contact(deck_set, CardBackType.COMMON, Location.WILDERNESS))
+    create_card_button(frame1, 'Общие: Море', lambda: play_contact(deck_set, CardBackType.COMMON, Location.SEA))
+    create_card_button(frame2, 'Арехэм', lambda: play_contact(deck_set, CardBackType.AMERICAN, Location.ARKHAM))
+    create_card_button(frame2, 'Сан-Франциско', lambda: play_contact(deck_set, CardBackType.AMERICAN, Location.SAN_FRANCISCO))
+    create_card_button(frame2, 'Буйный Сайрес', lambda: play_contact(deck_set, CardBackType.AMERICAN, Location.BUENOS_AIRES))
+    create_card_button(frame3, 'Токио', lambda: play_contact(deck_set, CardBackType.ASIAN, Location.TOKYO))
+    create_card_button(frame3, 'Сидней', lambda: play_contact(deck_set, CardBackType.ASIAN, Location.SYDNEY))
+    create_card_button(frame3, 'Шанхай', lambda: play_contact(deck_set, CardBackType.ASIAN, Location.ZANHAE))
+    create_card_button(frame4, 'Лондон', lambda: play_contact(deck_set, CardBackType.EUROPEAN, Location.LONDON))
+    create_card_button(frame4, 'Рим', lambda: play_contact(deck_set, CardBackType.EUROPEAN, Location.ROME))
+    create_card_button(frame4, 'Стамбул', lambda: play_contact(deck_set, CardBackType.EUROPEAN, Location.ISTANBUL))
+    create_card_button(frame5, 'Улика: Город', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.CITY))
+    create_card_button(frame5, 'Улика: Глушь', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.WILDERNESS))
+    create_card_button(frame5, 'Улика: Море', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.SEA))
 
 
-def town_contact(deck_set):
+
+def play_contact(deck_set, card_back_type, location):
     window = Toplevel()
     window.title('Город грехов')
     geometry_config(window, 380, 700)
 
-    next_city_contact = deck_set.get_next_contact(CardBackType.COMMON, Location.CITY)
+    contact = deck_set.get_next_contact(card_back_type, location)
 
     text_form = Text(master=window, font=('Arial', 20), width=25, height=20, wrap=WORD)
     text_form.pack()
-    text_form.insert(1.0, f'{next_city_contact.step}\n\n')
+    text_form.insert(1.0, f'{contact.step}\n\n')
 
-    if next_city_contact.has_test():
-        text_form.insert(3.0, f'Пройдите проверку {test_type_translate(next_city_contact.test.type)}')
+    if contact.has_test():
+        text_form.insert(3.0, f'Пройдите проверку {test_type_translate(contact.test.type)}')
 
-        if next_city_contact.test.has_modificator():
-            text_form.insert(4.0, next_city_contact.test.modificator)
+        if contact.test.has_modificator():
+            text_form.insert(4.0, contact.test.modificator)
 
         button_success = Button(master=window, text='УСПЕХ', width=20, height=2, font=('Arial', 13))
         button_success.pack(side=LEFT)
@@ -59,9 +70,9 @@ def town_contact(deck_set):
         button_fail.pack(side=LEFT)
 
         button_success['command'] = lambda: check_button_event(text_form, button_success, button_fail,
-                                                               next_city_contact.test.success)
+                                                               contact.test.success)
         button_fail['command'] = lambda: check_button_event(text_form, button_success, button_fail,
-                                                            next_city_contact.test.fail)
+                                                            contact.test.fail)
 
 
 def geometry_config(master, master_width, master_height):
