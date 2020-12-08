@@ -24,8 +24,33 @@ def create_main_window():
     frame4.pack()
     frame5.pack()
 
-    card_button_town = Button(master=frame1, text='Общие: Город', width=20, height=2, font=('Arial', 30), command=lambda: play_contact(window, frame1, deck_set, CardBackType.COMMON, Location.CITY, card_button_town))
+    card_button_town = Button(master=frame1, text='Общие: Город', width=20, height=2, font=('Arial', 30))
     card_button_town.pack(side=LEFT)
+    card_button_wilderness = Button(master=frame1, text='Общие: Глушь', width=20, height=2, font=('Arial', 30))
+    card_button_wilderness.pack(side=LEFT)
+    card_button_sea = Button(master=frame1, text='Общие: Море', width=20, height=2, font=('Arial', 30))
+    card_button_sea.pack(side=LEFT)
+    # card_button_arkham = Button(master=frame2, text='Арехэм', width=20, height=2, font=('Arial', 30))
+    # card_button_arkham.pack(side=LEFT)
+    # card_button_san_francisco = Button(master=frame2, text='Сан-Франциско', width=20, height=2, font=('Arial', 30))
+    # card_button_san_francisco.pack(side=LEFT)
+    # card_button_buenos_aires = Button(master=frame2, text='Буйный Сайрес', width=20, height=2, font=('Arial', 30))
+    # card_button_buenos_aires.pack(side=LEFT)
+
+    button_name_list = [card_button_town, card_button_wilderness, card_button_sea]
+
+    card_button_town['command'] = lambda: play_contact(window, frame1, deck_set, CardBackType.COMMON, Location.CITY,
+                                                       button_name_list)
+    card_button_wilderness['command'] = lambda: play_contact(window, frame1, deck_set, CardBackType.COMMON,
+                                                             Location.WILDERNESS, button_name_list)
+    card_button_sea['command'] = lambda: play_contact(window, frame1, deck_set, CardBackType.COMMON, Location.SEA,
+                                                      button_name_list)
+    # card_button_arkham['command'] = lambda: play_contact(window, frame2, deck_set, CardBackType.AMERICAN,
+    #                                                      Location.ARKHAM, button_name_list)
+    # card_button_san_francisco['command'] = lambda: play_contact(window, frame2, deck_set, CardBackType.AMERICAN,
+    #                                                             Location.SAN_FRANCISCO, button_name_list)
+    # card_button_buenos_aires['command'] = lambda: play_contact(window, frame2, deck_set, CardBackType.AMERICAN,
+    #                                                            Location.BUENOS_AIRES, button_name_list)
 
     # create_card_button(frame1, 'Общие: Город', lambda: play_contact(deck_set, CardBackType.COMMON, Location.CITY))
     # create_card_button(frame1, 'Общие: Глушь', lambda: play_contact(deck_set, CardBackType.COMMON, Location.WILDERNESS))
@@ -44,9 +69,10 @@ def create_main_window():
     # create_card_button(frame5, 'Улика: Море', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.SEA))
 
 
-def play_contact(window, frame, deck_set, card_back_type, location, button_name):
-    button_name.pack_forget()
-    window.title('Город грехов')
+def play_contact(window, frame, deck_set, card_back_type, location, button_name_list):
+    for button_name in button_name_list:
+        button_name.pack_forget()
+
     geometry_config(window, 380, 700)
 
     contact = deck_set.get_next_contact(card_back_type, location)
@@ -72,7 +98,7 @@ def play_contact(window, frame, deck_set, card_back_type, location, button_name)
         button_fail.pack(side=LEFT)
 
     button_exit = Button(master=window, text='НАЗАД', width=20, height=2, font=('Arial', 13))
-    button_exit['command'] = lambda: button_exit_event(window, text_form, button_exit, button_name)
+    button_exit['command'] = lambda: button_exit_event(window, text_form, button_exit, button_name_list)
     button_exit.pack()
 
 
@@ -90,10 +116,13 @@ def check_button_event(text_form, button_success, button_fail, text):
     text_form.insert(5.0, '\n\nНичего не произошло' if text is None else f'\n\n{text}')
 
 
-def button_exit_event(window, text_form, button_exit, button_name):
+def button_exit_event(window, text_form, button_exit, button_name_list):
     text_form.pack_forget()
     button_exit.pack_forget()
-    button_name.pack()
+
+    for button_name in button_name_list:
+        button_name.pack(side=LEFT)
+
     geometry_config(window, 1400, 350)
 
 
