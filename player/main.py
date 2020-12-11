@@ -5,10 +5,14 @@ from model.enums.location import Location
 from model.enums.testType import TestType
 
 
+WINDOW_WIDTH = 1400
+WINDOW_HEIGHT = 600
+
+
 def create_main_window():
     window = Toplevel()
     window.title('Контакты')
-    geometry_config(window, 1400, 350)
+    geometry_config(window, WINDOW_WIDTH, WINDOW_HEIGHT)
 
     deck_set = loader.load_decks()
     deck_set.shuffle()
@@ -36,8 +40,29 @@ def create_main_window():
     card_button_san_francisco.pack(side=LEFT)
     card_button_buenos_aires = Button(master=frame2, text='Буйный Сайрес', width=20, height=2, font=('Arial', 30))
     card_button_buenos_aires.pack(side=LEFT)
+    card_button_tokyo = Button(master=frame3, text='Токио', width=20, height=2, font=('Arial', 30))
+    card_button_tokyo.pack(side=LEFT)
+    card_button_sydney = Button(master=frame3, text='Сидней', width=20, height=2, font=('Arial', 30))
+    card_button_sydney.pack(side=LEFT)
+    card_button_zanhae = Button(master=frame3, text='Шанхай', width=20, height=2, font=('Arial', 30))
+    card_button_zanhae.pack(side=LEFT)
+    card_button_london = Button(master=frame4, text='Лондон', width=20, height=2, font=('Arial', 30))
+    card_button_london.pack(side=LEFT)
+    card_button_rome = Button(master=frame4, text='Рим', width=20, height=2, font=('Arial', 30))
+    card_button_rome.pack(side=LEFT)
+    card_button_istambul = Button(master=frame4, text='Стамбул', width=20, height=2, font=('Arial', 30))
+    card_button_istambul.pack(side=LEFT)
+    card_button_research_city = Button(master=frame5, text='Улика: Город', width=20, height=2, font=('Arial', 30))
+    card_button_research_city.pack(side=LEFT)
+    card_button_research_wilderness = Button(master=frame5, text='Улика: Глушь', width=20, height=2, font=('Arial', 30))
+    card_button_research_wilderness.pack(side=LEFT)
+    card_button_research_sea = Button(master=frame5, text='Улика: Море', width=20, height=2, font=('Arial', 30))
+    card_button_research_sea.pack(side=LEFT)
 
-    button_name_list = [card_button_town, card_button_wilderness, card_button_sea, card_button_arkham, card_button_san_francisco, card_button_buenos_aires]
+    button_name_list = [card_button_town, card_button_wilderness, card_button_sea, card_button_arkham,
+                        card_button_san_francisco, card_button_buenos_aires, card_button_tokyo, card_button_sydney,
+                        card_button_zanhae, card_button_london, card_button_rome, card_button_istambul,
+                        card_button_research_city, card_button_research_wilderness, card_button_research_sea]
 
     card_button_town['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.COMMON, Location.CITY,
                                                        button_name_list)
@@ -51,22 +76,24 @@ def create_main_window():
                                                                 Location.SAN_FRANCISCO, button_name_list)
     card_button_buenos_aires['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.AMERICAN,
                                                                Location.BUENOS_AIRES, button_name_list)
-
-    # create_card_button(frame1, 'Общие: Город', lambda: play_contact(deck_set, CardBackType.COMMON, Location.CITY))
-    # create_card_button(frame1, 'Общие: Глушь', lambda: play_contact(deck_set, CardBackType.COMMON, Location.WILDERNESS))
-    # create_card_button(frame1, 'Общие: Море', lambda: play_contact(deck_set, CardBackType.COMMON, Location.SEA))
-    # create_card_button(frame2, 'Арехэм', lambda: play_contact(deck_set, CardBackType.AMERICAN, Location.ARKHAM))
-    # create_card_button(frame2, 'Сан-Франциско', lambda: play_contact(deck_set, CardBackType.AMERICAN, Location.SAN_FRANCISCO))
-    # create_card_button(frame2, 'Буйный Сайрес', lambda: play_contact(deck_set, CardBackType.AMERICAN, Location.BUENOS_AIRES))
-    # create_card_button(frame3, 'Токио', lambda: play_contact(deck_set, CardBackType.ASIAN, Location.TOKYO))
-    # create_card_button(frame3, 'Сидней', lambda: play_contact(deck_set, CardBackType.ASIAN, Location.SYDNEY))
-    # create_card_button(frame3, 'Шанхай', lambda: play_contact(deck_set, CardBackType.ASIAN, Location.ZANHAE))
-    # create_card_button(frame4, 'Лондон', lambda: play_contact(deck_set, CardBackType.EUROPEAN, Location.LONDON))
-    # create_card_button(frame4, 'Рим', lambda: play_contact(deck_set, CardBackType.EUROPEAN, Location.ROME))
-    # create_card_button(frame4, 'Стамбул', lambda: play_contact(deck_set, CardBackType.EUROPEAN, Location.ISTANBUL))
-    # create_card_button(frame5, 'Улика: Город', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.CITY))
-    # create_card_button(frame5, 'Улика: Глушь', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.WILDERNESS))
-    # create_card_button(frame5, 'Улика: Море', lambda: play_contact(deck_set, CardBackType.RESEARCH, Location.SEA))
+    card_button_tokyo['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.ASIAN,
+                                                               Location.TOKYO, button_name_list)
+    card_button_sydney['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.ASIAN,
+                                                               Location.SYDNEY, button_name_list)
+    card_button_zanhae['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.ASIAN,
+                                                               Location.ZANHAE, button_name_list)
+    card_button_london['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.EUROPEAN,
+                                                               Location.LONDON, button_name_list)
+    card_button_rome['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.EUROPEAN,
+                                                               Location.ROME, button_name_list)
+    card_button_istambul['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.EUROPEAN,
+                                                               Location.ISTANBUL, button_name_list)
+    card_button_research_city['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.RESEARCH,
+                                                               Location.CITY, button_name_list)
+    card_button_research_wilderness['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.RESEARCH,
+                                                               Location.WILDERNESS, button_name_list)
+    card_button_research_sea['command'] = lambda: play_contact(window, frame1, frame2, deck_set, CardBackType.RESEARCH,
+                                                               Location.SEA, button_name_list)
 
 
 def play_contact(window, text_frame, button_frame, deck_set, card_back_type, location, button_name_list):
@@ -123,7 +150,7 @@ def button_exit_event(window, text_form, button_exit, button_name_list):
     for button_name in button_name_list:
         button_name.pack(side=LEFT)
 
-    geometry_config(window, 1400, 350)
+    geometry_config(window, WINDOW_WIDTH, WINDOW_HEIGHT)
 
 
 def test_type_translate(test_type):
