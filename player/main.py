@@ -4,9 +4,8 @@ from model.enums.cardBackType import CardBackType
 from model.enums.location import Location
 from model.enums.testType import TestType
 
-
 MAIN_WINDOW_WIDTH = 1400
-MAIN_WINDOW_HEIGHT = 740
+MAIN_WINDOW_HEIGHT = 800
 CONTACT_WINDOW_WIDTH = 500
 CONTACT_WINDOW_HEIGHT = 900
 
@@ -25,12 +24,14 @@ def create_main_window():
     frame4 = Frame(window)
     frame5 = Frame(window)
     frame6 = Frame(window)
+    frame7 = Frame(window)
     frame1.pack()
     frame2.pack()
     frame3.pack()
     frame4.pack()
     frame5.pack()
     frame6.pack()
+    frame7.pack()
 
     card_button_town = Button(master=frame1, text='Общие: Город', width=20, height=2, font=('Arial', 30))
     card_button_town.pack(side=LEFT)
@@ -75,38 +76,60 @@ def create_main_window():
 
     card_button_town['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
                                                        CardBackType.COMMON, Location.CITY)
-    card_button_wilderness['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.COMMON,
+    card_button_wilderness['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                             CardBackType.COMMON,
                                                              Location.WILDERNESS)
-    card_button_sea['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.COMMON, Location.SEA)
-    card_button_arkham['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.AMERICAN,
+    card_button_sea['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                      CardBackType.COMMON, Location.SEA)
+    card_button_arkham['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                         CardBackType.AMERICAN,
                                                          Location.ARKHAM)
-    card_button_san_francisco['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.AMERICAN,
+    card_button_san_francisco['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                                CardBackType.AMERICAN,
                                                                 Location.SAN_FRANCISCO)
-    card_button_buenos_aires['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.AMERICAN,
+    card_button_buenos_aires['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                               CardBackType.AMERICAN,
                                                                Location.BUENOS_AIRES)
-    card_button_tokyo['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.ASIAN,
-                                                               Location.TOKYO)
-    card_button_sydney['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.ASIAN,
-                                                               Location.SYDNEY)
-    card_button_zanhae['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.ASIAN,
-                                                               Location.ZANHAE)
-    card_button_london['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.EUROPEAN,
-                                                               Location.LONDON)
-    card_button_rome['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.EUROPEAN,
-                                                               Location.ROME)
-    card_button_istambul['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.EUROPEAN,
-                                                               Location.ISTANBUL)
-    card_button_research_city['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.RESEARCH,
-                                                               Location.CITY)
-    card_button_research_wilderness['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.RESEARCH,
-                                                               Location.WILDERNESS)
-    card_button_research_sea['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.RESEARCH,
+    card_button_tokyo['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                        CardBackType.ASIAN,
+                                                        Location.TOKYO)
+    card_button_sydney['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                         CardBackType.ASIAN,
+                                                         Location.SYDNEY)
+    card_button_zanhae['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                         CardBackType.ASIAN,
+                                                         Location.ZANHAE)
+    card_button_london['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                         CardBackType.EUROPEAN,
+                                                         Location.LONDON)
+    card_button_rome['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                       CardBackType.EUROPEAN,
+                                                       Location.ROME)
+    card_button_istambul['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                           CardBackType.EUROPEAN,
+                                                           Location.ISTANBUL)
+    card_button_research_city['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                                CardBackType.RESEARCH,
+                                                                Location.CITY)
+    card_button_research_wilderness['command'] = lambda: play_contact(window, frame1, frame2, deck_set,
+                                                                      button_name_list, CardBackType.RESEARCH,
+                                                                      Location.WILDERNESS)
+    card_button_research_sea['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                               CardBackType.RESEARCH,
                                                                Location.SEA)
-    card_button_expedition['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.OTHER_WORLD)
-    card_button_other_world['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list, CardBackType.OTHER_WORLD)
+    card_button_expedition['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                             CardBackType.EXPEDITION, contact_is_expedition=True,
+                                                             expedition_label=expedition_label)
+    card_button_other_world['command'] = lambda: play_contact(window, frame1, frame2, deck_set, button_name_list,
+                                                              CardBackType.OTHER_WORLD)
+
+    expedition_label = Label(window, text=expedition_location_translate(deck_set.get_next_expedition_location()),
+                             font=('Arial', 20))
+    expedition_label.pack()
 
 
-def play_contact(window, text_frame, button_frame, deck_set, button_name_list, card_back_type, location=None):
+def play_contact(window, text_frame, button_frame, deck_set, button_name_list, card_back_type, location=None,
+                 contact_is_expedition=False, expedition_label=None):
     for button_name in button_name_list:
         button_name.pack_forget()
 
@@ -138,7 +161,11 @@ def play_contact(window, text_frame, button_frame, deck_set, button_name_list, c
         else:
             button_success['command'] = lambda: check_button_event_simple(text_form, button_success, button_fail,
                                                                           contact.test.success)
-            button_fail['command'] = lambda: check_button_event_simple(text_form, button_success, button_fail, contact.test.fail)
+            button_fail['command'] = lambda: check_button_event_simple(text_form, button_success, button_fail,
+                                                                       contact.test.fail)
+
+    if contact_is_expedition:
+        expedition_label['text'] = expedition_location_translate(deck_set.get_next_expedition_location())
 
     button_exit = Button(master=button_frame, text='НАЗАД', width=20, height=3, font=('Arial', 13))
     button_exit['command'] = lambda: button_exit_event(window, text_form, button_exit, button_name_list)
@@ -214,6 +241,21 @@ def test_type_translate(test_type):
         return 'РЕШЕНИЕ'
     elif test_type == TestType.FIGHT:
         return 'ФАЙТ'
+
+
+def expedition_location_translate(location):
+    if location == Location.HEART_OF_AFRICA:
+        return 'Жетон экспедиции в АФРИКЕ'
+    elif location == Location.AMAZON:
+        return 'Жетон экспедиции в АМАЗОНКЕ'
+    elif location == Location.ANTARCTICA:
+        return 'Жетон экспедиции в АНТАРКТИКЕ'
+    elif location == Location.HIMALAYAS:
+        return 'Жетон экспедиции в ГИМАЛАЯХ'
+    elif location == Location.PYRAMIDS:
+        return 'Жетон экспедиции в ПИРАМИДАХ'
+    elif location == Location.TUNGUSKA:
+        return 'Жетон экспедиции в ТУНГУСКЕ'
 
 
 def main():
