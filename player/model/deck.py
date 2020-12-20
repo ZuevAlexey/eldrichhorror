@@ -18,14 +18,6 @@ class Deck(object):
         card_id = card.get_unique_id()
         self._cards[card_id] = card
 
-    @property
-    def capacity(self):
-        return len(self._cards)
-
-    @property
-    def size(self):
-        return len(self._cardStack)
-
     def shuffle(self):
         if self._is_shuffled:
             raise RuntimeError(DECK_ALREADY_SHUFFLED)
